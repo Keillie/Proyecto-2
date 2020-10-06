@@ -4,23 +4,55 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="585.0" prefWidth="600.0" style="-fx-background-color: #C0C0C0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrdenesCompras">
+<AnchorPane prefHeight="701.0" prefWidth="1091.0" style="-fx-background-color: #C0C0C0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrdenesCompras">
    <children>
-      <Label layoutX="216.0" layoutY="53.0" text="Ordenes de Compra" textFill="#756666">
+      <Label layoutX="418.0" layoutY="14.0" text="Orden de Compra" textFill="#756666">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button layoutX="413.0" layoutY="134.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="CALCULAR" />
-      <Button layoutX="413.0" layoutY="213.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="111.0" text="SALIR" />
-      <Button layoutX="413.0" layoutY="172.0" mnemonicParsing="false" onAction="#retornarMenu" text="MENU PRINCIPAL" />
-      <Label layoutX="69.0" layoutY="126.0" text="ID:" />
-      <TableView fx:id="tblOrden" layoutX="52.0" layoutY="273.0" prefHeight="277.0" prefWidth="494.0">
+      <Button layoutX="706.0" layoutY="82.0" mnemonicParsing="false" onAction="#calcular" prefHeight="33.0" prefWidth="130.0" text="CALCULAR" />
+      <Button layoutX="706.0" layoutY="175.0" mnemonicParsing="false" onAction="#exit" prefHeight="33.0" prefWidth="130.0" text="SALIR" />
+      <Button layoutX="706.0" layoutY="128.0" mnemonicParsing="false" onAction="#retornarMenu" prefHeight="33.0" prefWidth="130.0" text="MENU PRINCIPAL" />
+      <Label layoutX="60.0" layoutY="56.0" text="No. " />
+      <TableView fx:id="tblOrden" layoutX="52.0" layoutY="381.0" prefHeight="286.0" prefWidth="985.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="ID" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="tcNo" prefWidth="50.0" text="NO." />
+          <TableColumn fx:id="tcProveedor" prefWidth="167.0" text="PROVEEDOR" />
+            <TableColumn fx:id="tcFecha" prefWidth="106.0" text="FECHA COMPRA" />
+            <TableColumn fx:id="tcProducto" prefWidth="87.0" text="PRODUCTO" />
+            <TableColumn fx:id="tcDiasEnvio" prefWidth="84.0" text="DIAS ENVIO" />
+            <TableColumn fx:id="tcTipoEnvio" prefWidth="105.0" text="TIPO ENVIO" />
+            <TableColumn fx:id="tcEstado" prefWidth="53.0" text="ESTADO" />
+            <TableColumn fx:id="tcCantidad" prefWidth="92.0" text="CANTIDAD" />
+            <TableColumn fx:id="tcPrecio" prefWidth="70.0" text="PRECIO" />
+            <TableColumn fx:id="tcSubtotal" prefWidth="92.0" text="SUBTOTAL" />
+            <TableColumn fx:id="tcTotal" prefWidth="107.0" text="TOTAL" />
         </columns>
       </TableView>
-      <TextField fx:id="txtId" layoutX="117.0" layoutY="122.0" />
+      <TextField fx:id="txtNo" layoutX="162.0" layoutY="52.0" prefHeight="25.0" prefWidth="130.0" />
+      <Label layoutX="60.0" layoutY="99.0" text="Proveedor" />
+      <TextField fx:id="txtProveedor" layoutX="162.0" layoutY="86.0" prefHeight="25.0" prefWidth="174.0" />
+      <TextField fx:id="txtFecha" layoutX="162.0" layoutY="119.0" prefHeight="25.0" prefWidth="174.0" />
+      <Label layoutX="57.0" layoutY="131.0" text="Fecha de Compra" />
+      <Label layoutX="58.0" layoutY="160.0" text="Nombre producto" />
+      <Label layoutX="58.0" layoutY="195.0" text="Cantidad" />
+      <Label layoutX="58.0" layoutY="231.0" text="Precio unitario" />
+      <TextField fx:id="txtNombreProducto" layoutX="162.0" layoutY="156.0" prefHeight="25.0" prefWidth="174.0" />
+      <TextField fx:id="txtCantidad" layoutX="162.0" layoutY="191.0" prefHeight="25.0" prefWidth="174.0" />
+      <TextField fx:id="txtPrecioUnitario" layoutX="162.0" layoutY="227.0" prefHeight="25.0" prefWidth="174.0" />
+      <Label layoutX="60.0" layoutY="277.0" text="Dias de envio" />
+      <Label layoutX="429.0" layoutY="277.0" text="Tipo de envio" />
+      <Label layoutX="429.0" layoutY="331.0" text="Estado" />
+      <VBox layoutX="161.0" layoutY="273.0" prefHeight="25.0" prefWidth="174.0" />
+      <ChoiceBox fx:id="chBoxDiasEnvio" layoutX="162.0" layoutY="271.0" prefHeight="25.0" prefWidth="174.0" />
+      <VBox layoutX="518.0" layoutY="273.0" prefHeight="45.0" prefWidth="174.0">
+         <children>
+            <ChoiceBox fx:id="chBoxTipoEnvio" prefHeight="25.0" prefWidth="174.0" />
+         </children></VBox>
+      <VBox layoutX="518.0" layoutY="326.0" prefHeight="45.0" prefWidth="174.0">
+         <children>
+            <ChoiceBox fx:id="chBoxEstado" prefHeight="25.0" prefWidth="174.0" />
+         </children></VBox>
    </children>
 </AnchorPane>

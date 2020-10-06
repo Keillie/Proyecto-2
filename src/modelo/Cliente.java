@@ -11,7 +11,7 @@ public class Cliente {
     private String apellido;
     private String correoElectronico;
     private String telefono;
-    private String repuesto;
+    private String tipoCliente;
 
     /**
      * Constructor Cliente
@@ -27,15 +27,15 @@ public class Cliente {
      * @param apellido
      * @param correoElectronico
      * @param telefono
-     * @param repuesto
+     * @param tipoCliente
      */
-    public Cliente( String nombre, String apellido, String correoElectronico, String telefono, String repuesto) {
+    public Cliente(String nombre, String apellido, String correoElectronico, String telefono, String tipoCliente) {
         this.id = sigIdCliente++;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correoElectronico = correoElectronico;
         this.telefono = telefono;
-        this.repuesto = repuesto;
+        this.tipoCliente = tipoCliente;
     }
 
     /**
@@ -82,12 +82,12 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public String getRepuesto() {
-        return repuesto;
+    public String getTipoCliente() {
+        return tipoCliente;
     }
 
-    public void setRepuesto(String repuesto) {
-        this.repuesto = repuesto;
+    public void setTipoCliente(String tipoCliente) {
+        this.tipoCliente = tipoCliente;
     }
 
     /**
@@ -102,7 +102,7 @@ public class Cliente {
                 ", apellido='" + apellido + '\'' +
                 ", correoElectronico='" + correoElectronico + '\'' +
                 ", telefono='" + telefono + '\'' +
-                ", repuesto='" + repuesto + '\'' +
+                ", Tipo Cliente='" + tipoCliente + '\'' +
                 '}';
     }
 }

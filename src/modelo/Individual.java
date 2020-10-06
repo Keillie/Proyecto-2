@@ -21,10 +21,10 @@ public class Individual extends Cliente {
      * @param apellido
      * @param correoElectronico
      * @param telefono
-     * @param repuesto
+     * @param tipoCliente
      */
-    public Individual(String dpi, String nombre, String apellido, String correoElectronico, String telefono, String repuesto) {
-        super(nombre, apellido, correoElectronico, telefono, repuesto);
+    public Individual(String dpi, String nombre, String apellido, String correoElectronico, String telefono, String tipoCliente) {
+        super(nombre, apellido, correoElectronico, telefono, tipoCliente);
         this.dpi = dpi;
     }
 

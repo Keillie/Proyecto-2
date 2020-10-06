@@ -45,7 +45,7 @@ public class ProductosManejo {
 
     /**
      * Metodo para guardar productos nuevos que van ingresando
-     * @param actionEvent se realiza accion al dar click en le boton
+     * @param actionEvent se realiza accion al dar click en el boton
      */
     public void addProducto(ActionEvent actionEvent) {
         try {
@@ -62,7 +62,6 @@ public class ProductosManejo {
             alert.setTitle("Error");
             alert.setContentText("Datos incorrectos. ");
             alert.showAndWait();
-
         }
 
     }

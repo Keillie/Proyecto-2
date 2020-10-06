@@ -54,7 +54,7 @@ public class LoginController {
                 //se hace un casteo con (pane)
                 Scene scene = new Scene(raiz, 750, 650);
                 Stage stage =new Stage();
-                stage.setTitle("Auto Partes/Menu Principal");
+                stage.setTitle("Menu Principal");
                 stage.setScene(scene);
                 stage.show();
                 Stage stageLogin = (Stage) txtUsuario.getScene().getWindow();

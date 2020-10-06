@@ -6,7 +6,7 @@
 
 <Pane prefHeight="702.0" prefWidth="709.0" style="-fx-background-color: #C0C0C0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Menu">
     <children>
-        <MenuBar layoutX="156.0" layoutY="14.0" prefHeight="30.0" prefWidth="311.0">
+        <MenuBar layoutX="180.0" layoutY="14.0" prefHeight="30.0" prefWidth="311.0">
             <menus>
                 <Menu mnemonicParsing="false" text="CLIENTES">
                     <items>
@@ -38,32 +38,30 @@
                 <TableColumn fx:id="tfApellido" prefWidth="106.0" text="APELLIDO" />
                 <TableColumn fx:id="tfCorreo" prefWidth="131.0" text="CORREO " />
                 <TableColumn fx:id="tfTelefono" prefWidth="97.0" text="TELEFONO" />
-                <TableColumn fx:id="tfRepuesto" prefWidth="143.0" text="REPUESTO" />
+                <TableColumn fx:id="tfTipoCliente" prefWidth="143.0" text="TIPO DE CLIENTE" />
             </columns>
         </TableView>
-        <Button layoutX="496.0" layoutY="213.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="128.0" text="SALIR" />
         <Label layoutX="62.0" layoutY="142.0" text="Apellido:" />
         <Label layoutX="60.0" layoutY="176.0" text="Correo Electronico" />
         <Label layoutX="61.0" layoutY="208.0" text="Telefono:" />
-        <Label layoutX="61.0" layoutY="240.0" text="Repuesto" />
+        <Label layoutX="61.0" layoutY="240.0" text="Tipo de CLiente" />
         <TextField fx:id="txtApellido" layoutX="166.0" layoutY="138.0" prefHeight="25.0" prefWidth="185.0" />
         <TextField fx:id="txtCorreo" layoutX="166.0" layoutY="172.0" prefHeight="25.0" prefWidth="185.0" />
         <TextField fx:id="txtTelefono" layoutX="166.0" layoutY="204.0" prefHeight="25.0" prefWidth="185.0" />
-        <TextField fx:id="txtRepuesto" layoutX="166.0" layoutY="236.0" prefHeight="25.0" prefWidth="185.0" />
-         <MenuButton layoutX="166.0" layoutY="66.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="185.0">
-           <items>
-             <MenuItem mnemonicParsing="false" text="Individual" />
-             <MenuItem mnemonicParsing="false" text="Empresa" />
-           </items>
-         </MenuButton>
+        <TextField fx:id="txtTipoCliente" layoutX="166.0" layoutY="236.0" prefHeight="25.0" prefWidth="185.0" />
          <Label layoutX="310.0" layoutY="14.0" text="CLIENTES" textFill="#756666">
             <font>
                <Font name="System Bold" size="20.0" />
             </font>
          </Label>
          <Button layoutX="496.0" layoutY="94.0" mnemonicParsing="false" onAction="#cargarClientes" prefHeight="25.0" prefWidth="128.0" text="CARGAR CLIENTES" />
-         <Label layoutX="60.0" layoutY="70.0" text="Tipo de cliente:" />
+         <Label layoutX="62.0" layoutY="51.0" text="Tipo de cliente:" visible="false" />
+         <VBox layoutX="166.0" layoutY="51.0" prefHeight="46.0" prefWidth="185.0">
+            <children>
+               <ChoiceBox fx:id="chBoxTipoCliente" prefHeight="25.0" prefWidth="185.0" visible="false" />
+            </children></VBox>
+         <Label layoutX="379.0" layoutY="240.0" text="Individual/Empresa" />
         </Pane>
-      <Button layoutX="511.0" layoutY="14.0" mnemonicParsing="false" onAction="#salir" prefHeight="30.0" prefWidth="116.0" text="SALIR" />
+      <Button layoutX="502.0" layoutY="14.0" mnemonicParsing="false" onAction="#salir" prefHeight="30.0" prefWidth="116.0" text="SALIR" />
     </children>
 </Pane>

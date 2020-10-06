@@ -24,10 +24,10 @@ public class Empresa extends Cliente {
      * @param apellido
      * @param correoElectronico
      * @param telefono
-     * @param repuesto
+     * @param tipoCliente
      */
-    public Empresa(String nombre, String apellido, String correoElectronico, String telefono, String repuesto, String contacto, int descuesto) {
-        super(nombre, apellido, correoElectronico, telefono, repuesto);
+    public Empresa(String nombre, String apellido, String correoElectronico, String telefono, String tipoCliente, String contacto, int descuesto) {
+        super(nombre, apellido, correoElectronico, telefono, tipoCliente);
         this.contacto = contacto;
         this.descuento = descuesto;
     }

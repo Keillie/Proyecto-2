@@ -1,6 +1,7 @@
-package utils;
+package modelo;
 
 import modelo.Cliente;
+import utils.ItemOrden;
 
 import java.util.Date;
 
@@ -10,27 +11,32 @@ import java.util.Date;
 public class Orden {
     //Propiedades con su tipo de dato que seran utilizadas
     int id;
-    Cliente cliente;
-    ItemOrden item1;
-    ItemOrden item2;
-    Date fechaOrden;
-    double precioEnvio;
-    double total;
-    String tipoEnvio;
-    String estado;
-    static int sigIdOrden; //Llevar el orden correlativo id de la orden
-    int diasEnvio;
+    public Cliente cliente;
+    public ItemOrden item1;
+    public ItemOrden item2;
+    public Date fechaOrden;
+    public double precioEnvio;
+    public double total;
+    public String tipoEnvio;
+    public String estado;
+    public static int sigIdOrden; //Llevar el orden correlativo id de la orden
+    public int diasEnvio;
 
     /**
-     * Constructor inicializando parametros de las propiedades
-     * @param id
-     * @param fechaOrden
-     * @param total
+     * Constructor inicializamos propiedades
      */
-    public Orden(int id, Date fechaOrden, double total) {
-        this.id = id;
+    public Orden() {
+        this.id = sigIdOrden++;
         this.fechaOrden = new Date();
         this.total = 0.0;
+    }
+
+    /**
+     * Constructor para inicializar propiedadd
+     * @param fechaOrden parametro para fecha de la orden
+     */
+    public Orden(Date fechaOrden){
+        this.fechaOrden = fechaOrden;
     }
 
     /**

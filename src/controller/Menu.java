@@ -18,6 +18,7 @@ import modelo.Producto;
 import utils.VariablesGlobales;
 import utils.DataSistema;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -31,16 +32,19 @@ public class Menu {
     public TextField txtApellido;
     public TextField txtCorreo;
     public TextField txtTelefono;
-    public TextField txtRepuesto;
+    public TextField txtTipoCliente;
     public TableColumn tfId;
     public TableColumn tfNombreCliente;
     public TableColumn tfApellido;
     public TableColumn tfCorreo;
     public TableColumn tfTelefono;
-    public TableColumn tfRepuesto;
+    public TableColumn tfTipoCliente;
     public TableView tblClientes;
     public Pane paneCliente;
     public MenuItem itemProductos;
+    public ChoiceBox <String>chBoxTipoCliente;
+    ObservableList list = FXCollections.observableArrayList();
+
 
 
     /**
@@ -48,13 +52,14 @@ public class Menu {
      */
     @FXML
     public void initialize(){
+        //chBoxTipoCliente.setItems(list);
         tfId.setCellValueFactory(new PropertyValueFactory<Cliente, Integer>("id")); //asignar valores que pueden estar asociados a esta celda y se maneja por meido de un objeto
         tfNombreCliente.setCellValueFactory(new PropertyValueFactory<Cliente, String>("nombre")); //parametros es nombre y de manera automatica se le pasa un conjunto de carreras
         tfApellido.setCellValueFactory(new PropertyValueFactory<Cliente, String>("apellido"));
         tfCorreo.setCellValueFactory(new PropertyValueFactory<Cliente, String>("correoElectronico"));
         tfTelefono.setCellValueFactory(new PropertyValueFactory<Cliente, String>("telefono"));
-        tfRepuesto.setCellValueFactory(new PropertyValueFactory<Cliente, String>("repuesto"));
-
+        tfTipoCliente.setCellValueFactory(new PropertyValueFactory<Cliente, String>("tipoCliente"));
+        loadData();
     }
 
     /**
@@ -62,13 +67,13 @@ public class Menu {
      * @param actionEvent al hacer click en el boton se ejecutara dicha accion
      */
     public void cargarClientes(ActionEvent actionEvent) {
-        Cliente c2 =new Cliente("Ana","Gonzalez","ana5555@gmail.com","7985-8596","Compresor de resortes amortiguador");
+        Cliente c2 =new Cliente("Ana","Gonzalez","ana5555@gmail.com","7985-8596","Individual");
         VariablesGlobales.cli1.addCliente(c2);
-        Cliente c3 =new Cliente("Luis","Hernandez","luishernandez@gmail.com","8596-8541","Filtro de aceite");
+        Cliente c3 =new Cliente("Luis","Hernandez","luishernandez@gmail.com","8596-8541","Individual");
         VariablesGlobales.cli1.addCliente(c3);
-        Cliente c4 =new Cliente("Carlos","Herrera Hernandez","carlosn477@gmail.com","9090-1045","Protect 10W-40 4Litros");
+        Cliente c4 =new Cliente("Carlos","Herrera Hernandez","carlosn477@gmail.com","9090-1045","Empresa");
         VariablesGlobales.cli1.addCliente(c4);
-        Cliente c5 =new Cliente("Dulce","Cifuentes","dulcecifuentes4@gmail","5696-4122","Filtro de gasolina");
+        Cliente c5 =new Cliente("Dulce","Cifuentes","dulcecifuentes4@gmail","5696-4122","Empresa");
         VariablesGlobales.cli1.addCliente(c5);
         ObservableList<Cliente> dat = FXCollections.observableArrayList(VariablesGlobales.cli1.getClientes()); //convertir un arreglo de este tipo
         tblClientes.setItems(dat);
@@ -82,7 +87,7 @@ public class Menu {
     public void addCliente(ActionEvent actionEvent) {
 
         try {
-            Cliente c1 =new Cliente(txtNombreCliente.getText(),txtApellido.getText(),txtCorreo.getText(),txtTelefono.getText(),txtRepuesto.getText());
+            Cliente c1 =new Cliente(txtNombreCliente.getText(),txtApellido.getText(),txtCorreo.getText(),txtTelefono.getText(),txtTipoCliente.getText());
             VariablesGlobales.cli1.addCliente(c1);
             ObservableList<Cliente> data = FXCollections.observableArrayList(VariablesGlobales.cli1.getClientes()); //convertir un arreglo de este tipo
             tblClientes.setItems(data);
@@ -90,18 +95,16 @@ public class Menu {
             txtApellido.setText("");
             txtCorreo.setText("");
             txtTelefono.setText("");
-            txtRepuesto.setText("");
+            //String opciones = chBoxTipoCliente.getValue();
+            //if(opciones == null){
+                //JOptionPane.showMessageDialog(null, "No selecciono tipo de cliente","Auto Partes", JOptionPane.ERROR_MESSAGE);
+            //}else{
+                //txtTipoCliente.setText(opciones);
+            //}
+            txtTipoCliente.setText("");
         }catch (Exception e){
             e.printStackTrace();
         }
-    }
-
-    /**
-     * Metodo exit implementado para salir de la aplicacion
-     * @param actionEvent funcion al dar clic en el boton
-     */
-    public void exit(ActionEvent actionEvent) {
-        System.exit(0);
     }
 
     /**
@@ -110,6 +113,17 @@ public class Menu {
      */
     public void mostrarCliente(ActionEvent actionEvent) {
         paneCliente.setVisible(true);
+    }
+
+    /**
+     * Metodo sin retorno para utilizar choiceBox lista despegable con opciones
+     */
+    private void loadData(){
+        list.removeAll(list);
+        String tipo1 = "Individual";
+        String tipo2 = "Empresa";
+        list.addAll(tipo1,tipo2);
+        chBoxTipoCliente.getItems().addAll(list);
     }
 
     /**
@@ -123,7 +137,7 @@ public class Menu {
             this.txtApellido.setText(c.getApellido());
             this.txtCorreo.setText(c.getCorreoElectronico());
             this.txtTelefono.setText(c.getTelefono());
-            this.txtRepuesto.setText(c.getRepuesto());
+            this.txtTipoCliente.setText(c.getTipoCliente());
         }
     }
 
@@ -141,9 +155,9 @@ public class Menu {
             alert.setContentText("Debe seleccionar un cliente. ");
             alert.showAndWait();
         }else{
-            //VariablesGlobales.cli1.addCliente(c).remove(c);
-            //this.tblClientes.remove(c);
-            //this.tblClientes.refresh();
+            //VariablesGlobales.cli1.addCliente().remove(c);
+            VariablesGlobales.cli1.getClientes().remove(c);
+            this.tblClientes.refresh();
         }
     }
 
@@ -169,7 +183,6 @@ public class Menu {
             stageLogin.close();//cerrar stage o ventana de login y dejar solo menuPrincipal
             //Stage stage1 = (Stage)this.itemProductos.getScene().getWindow();
             //stage1.close();
-
 
         }catch (IOException e){
             e.printStackTrace();
@@ -205,4 +218,5 @@ public class Menu {
     public void salir(ActionEvent actionEvent) {
         System.exit(0);
     }
+
 }
